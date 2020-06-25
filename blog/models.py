@@ -23,6 +23,15 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
+    # Ограничение показа в админке content до 75 символов.
+    def smalling_content(self):
+        return self.title[:75]
+
+    smalling_content.short_description = 'Содержание'
+    smalling_content.admin_order_field = 'content'
+
+    small_content = property(smalling_content)
+
 
 class Comment(models.Model):
     content = models.TextField(verbose_name='Содержание', help_text='Содержание комментария')

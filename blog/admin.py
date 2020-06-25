@@ -10,7 +10,7 @@ from blog.models import Blog, Comment
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ['title', 'content', 'post_datetime', 'edit_datetime', 'link_to_user', ]
+    list_display = ['title', 'small_content', 'post_datetime', 'edit_datetime', 'link_to_user', ]
 
     # Генерация ссылки на пользователя с конкретного поста
     def link_to_user(self, obj):

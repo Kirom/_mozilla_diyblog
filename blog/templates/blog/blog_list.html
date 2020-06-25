@@ -1,0 +1,10 @@
+{% extends 'Base.html' %}
+{% block title %} <title>All blogs</title> {% endblock %}
+{% block content %}
+<h2>All Blogs</h2>
+{% for obj in object_list %}
+<li style="margin-left:20px">
+    {{obj}} ({{obj.post_datetime|date}})
+</li>
+{% endfor %}
+{% endblock %}

@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
-    url(r'^all/$', views.home, name='all'),
+    url(r'^all/$', views.BlogListView.as_view(), name='all'),
 ]

@@ -4,7 +4,7 @@
 <h2>All Blogs</h2>
 {% for obj in object_list %}
 <li style="margin-left:20px">
-    {{obj}} ({{obj.post_datetime|date}})
+    <a href="{% url 'blog:detail' obj.pk %}"> {{ obj.title }}</a> ({{ obj.post_datetime|date }})
 </li>
 {% endfor %}
 {% endblock %}

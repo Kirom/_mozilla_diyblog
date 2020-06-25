@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
-from blog.models import Blog
+from blog.models import Blog, Comment
 
 
 def home(request):
@@ -14,3 +14,8 @@ class BlogListView(ListView):
 
     def get_ordering(self):
         return '-post_datetime'
+
+
+class BlogDetailView(DetailView):
+    model = Blog
+    extra_context = {'comments': Comment.objects.all}

@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^all/$', views.BlogListView.as_view(), name='all'),
+    path('<int:pk>/', views.BlogDetailView.as_view(), name='detail'),
 ]

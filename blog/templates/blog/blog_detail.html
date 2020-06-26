@@ -12,8 +12,15 @@
     <hr>
     {% for comment in comments %}
     {% if comment.blog_id == blog.pk %}
-    <p>{{ comment.content }}</p><hr>
+    <p>{{ comment.author }} ({{ comment.post_datetime }}) - {{ comment.content }}</p>
+    <hr>
     {% endif %}
     {% endfor %}
+    {% if user.is_authenticated %}
+    add
+    {% comment %}<a href="">Add a new comment</a> {% endcomment %}
+    {% else %}
+    Login
+    {% endif %}
 </div>
 {% endblock %}

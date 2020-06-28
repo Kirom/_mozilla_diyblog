@@ -17,10 +17,9 @@
     {% endif %}
     {% endfor %}
     {% if user.is_authenticated %}
-    add
-    {% comment %}<a href="">Add a new comment</a> {% endcomment %}
+    <a href="{% url 'blog:create_comment' object.pk %}">Add a new comment</a>
     {% else %}
-    Login
+    <a href="{% url 'login' %}?next={{ request.path }}">Login</a> to add a new comment
     {% endif %}
 </div>
 {% endblock %}

@@ -2,7 +2,8 @@
 {% block title %} {{ title }} :: {{ block.super }} {% endblock %}
 {% block content %}
 {% load poll_extras %}
-Ваш комментарий к посту: <a href="{% url 'blog:detail' request.resolver_match.kwargs.pk %}">{{ blog|blog_title_detail:request.resolver_match.kwargs.pk }}</a>
+Ваш комментарий к посту: <a href="{% url 'blog:detail' request.resolver_match.kwargs.pk %}">
+    {{ blog|blog_title_detail:request.resolver_match.kwargs.pk }}</a>
 <form method="post">{% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Save">
